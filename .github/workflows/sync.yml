@@ -28,9 +28,9 @@ jobs:
          wget https://github.com/cdnjs/tools/releases/latest/download/git-sync
          chmod +x ./git-sync
          cd cdnjs
-         git config user.name github-actions
-         git config user.email github-actions@github.com
-         ../git-sync ./last-sync
+         git config user.name robocdnjs
+         git config user.email cdnjs-github@cloudflare.com
+         ../git-sync ./last-sync cdnjs-outgoing-staging
 
      - name: Push changes
        uses: ad-m/github-push-action@master
