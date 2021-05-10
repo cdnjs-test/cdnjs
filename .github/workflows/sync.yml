@@ -33,7 +33,6 @@ jobs:
          ../git-sync ./last-sync
          git add ./last-sync
          git commit -m "update last sync marker"
-         git push
 
      - name: Push changes
        uses: ad-m/github-push-action@master
