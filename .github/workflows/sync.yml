@@ -3,6 +3,14 @@ name: sync
 on:
   schedule:
     - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
 
 jobs:
   close-fork-pulls:
