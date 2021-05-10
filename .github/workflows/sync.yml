@@ -31,8 +31,6 @@ jobs:
          git config user.name github-actions
          git config user.email github-actions@github.com
          ../git-sync ./last-sync
-         git add ./last-sync
-         git commit -m "update last sync marker"
 
      - name: Push changes
        uses: ad-m/github-push-action@master
