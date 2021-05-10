@@ -23,3 +23,18 @@ jobs:
            --filter=blob:none \
            --sparse \
            https://github.com/cdnjs-test/cdnjs.git
+
+     - run: |
+         cd cdnjs
+         date > generated.txt
+         git config user.name github-actions
+         git config user.email github-actions@github.com
+         git add .
+         git commit -m "generated"
+
+     - name: Push changes
+       uses: ad-m/github-push-action@master
+       with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         branch: test
+         directory: cdnjs
