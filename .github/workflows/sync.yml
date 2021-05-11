@@ -22,7 +22,7 @@ jobs:
            --depth 1  \
            --filter=blob:none \
            --sparse \
-           https://github.com/cdnjs-test/cdnjs.git
+           https://${{ secrets.GITHUB_TOKEN }}@github.com/cdnjs-test/cdnjs.git
 
      - run: |
          wget https://github.com/cdnjs/tools/releases/latest/download/git-sync
@@ -30,10 +30,5 @@ jobs:
          cd cdnjs
          git config user.name robocdnjs
          git config user.email cdnjs-github@cloudflare.com
-         ../git-sync ./last-sync cdnjs-outgoing-staging
-
-     - name: Push changes
-       uses: ad-m/github-push-action@master
-       with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-         directory: cdnjs
+         ../git-sync ./last-sync cdnjs-outgoing-prod
+         git push
