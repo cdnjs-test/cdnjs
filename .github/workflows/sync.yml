@@ -17,18 +17,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     - run: |
+     - name: clone
+       run: |
          git clone \
            --depth 1  \
            --filter=blob:none \
            --sparse \
            https://${{ secrets.GITHUB_TOKEN }}@github.com/cdnjs-test/cdnjs.git
 
-     - run: |
+     - name: sync
+       run: |
          wget https://github.com/cdnjs/tools/releases/latest/download/git-sync
          chmod +x ./git-sync
          cd cdnjs
          git config user.name robocdnjs
          git config user.email cdnjs-github@cloudflare.com
          ../git-sync ./last-sync cdnjs-outgoing-prod
-         git push
+         
+     - name: push
+       run: git push https://${{ secrets.GITHUB_TOKEN }}@github.com/cdnjs-test/cdnjs.git
