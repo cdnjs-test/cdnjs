@@ -37,4 +37,4 @@ jobs:
      - name: push
        run: |
          cd cdnjs
-         git push
+         git push https://${{ github.actor }}:${{ github.GITHUB_TOKEN }}@github.com/cdnjs-test/cdnjs.git
