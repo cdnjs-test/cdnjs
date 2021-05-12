@@ -35,4 +35,6 @@ jobs:
          ../git-sync ./last-sync cdnjs-outgoing-prod
          
      - name: push
-       run: git push https://${{ secrets.GITHUB_TOKEN }}@github.com/cdnjs-test/cdnjs.git
+       run: |
+         cd cdnjs
+         git push https://${{ secrets.GITHUB_TOKEN }}@github.com/cdnjs-test/cdnjs.git
