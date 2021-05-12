@@ -19,12 +19,11 @@ jobs:
     steps:
      - name: clone
        run: |
-         git config --global credential.helper store
          git clone \
            --depth 1  \
            --filter=blob:none \
            --sparse \
-           https://${{ secrets.GITHUB_TOKEN }}@github.com/cdnjs-test/cdnjs.git
+           https://${{ github.token }}@github.com/cdnjs-test/cdnjs.git
 
      - name: sync
        run: |
