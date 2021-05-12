@@ -19,6 +19,7 @@ jobs:
     steps:
      - name: clone
        run: |
+         git config credential.helper store
          git clone \
            --depth 1  \
            --filter=blob:none \
