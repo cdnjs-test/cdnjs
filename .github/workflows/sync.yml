@@ -37,5 +37,4 @@ jobs:
      - name: push
        run: |
          cd cdnjs
-         ls ajax/libs/hi-sven/*
          git push https://${{ github.actor }}:${{ github.token }}@github.com/cdnjs-test/cdnjs.git
