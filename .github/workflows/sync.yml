@@ -25,7 +25,7 @@ jobs:
          cd cdnjs
          git config user.name robocdnjs
          git config user.email cdnjs-github@cloudflare.com
-         ../git-sync ./last-sync cdnjs-outgoing-prod
+         ../git-sync ./last-sync cdnjs-outgoing-staging
          
      - name: push
        run: |
